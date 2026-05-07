@@ -89,5 +89,13 @@ This is the repository for the Schoolcraft Engineering Club's Autonomous RC Car.
   </details>
 
   - <a href="https://www.tinkercad.com/things/8e6ZMUtTsOs-autonomous-driving-f1-car/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits">Tinkercad Link</a>
+
+---
+
+#### *Useful Links:*
+- <a href="https://www.circuit-diagram.org/">Schematics Creation Tool</a>
+
+- <a href="https://www.tinkercad.com/">Tinkercad</a>
+
   
 
