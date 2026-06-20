@@ -6,9 +6,11 @@
 #include <Servo.h>
 #include <IrSensorArray.hpp>
 
-#define FWD_SPEED  1400
+#define FWD_SPEED  1370
 #define NEUTRAL_SPEED 1500
 #define REV_SPEED 1600
+
+#define ESC_DELAY 25
 
 #define MIN_PULSE_W 1000
 #define MAX_PULSE_W 2000
@@ -59,11 +61,11 @@ bool trafficLightCheck();
 void fwd();
 void stop();
 
+
 void setup() {
   Serial.begin(9600);
 
   servoMotor.attach(SERVO_PIN);
-  ESC.attach(MOTOR_PIN, MIN_PULSE_W, MAX_PULSE_W);
 
   pinMode(IR_L_1, INPUT);
   pinMode(IR_L_2, INPUT);
@@ -75,11 +77,14 @@ void setup() {
 
   pixy.init();
 
+  ESC.attach(MOTOR_PIN, MIN_PULSE_W, MAX_PULSE_W);
+
   ESC.writeMicroseconds(NEUTRAL_SPEED);
   delay(STARTUP_DELAY);
 }
 
-void loop() {  
+
+void loop() {
   const int sensL1 = normalizeIrReading(analogRead(IR_L_1));
   const int sensL2 = normalizeIrReading(analogRead(IR_L_2));
   const int sensL3 = normalizeIrReading(analogRead(IR_L_3));
@@ -152,6 +157,9 @@ bool trafficLightCheck() {
 
 void fwd() {
   ESC.writeMicroseconds(FWD_SPEED);
+  delay(ESC_DELAY);
+  ESC.writeMicroseconds(NEUTRAL_SPEED);
+  delay(ESC_DELAY);
 }
 
 void stop() {

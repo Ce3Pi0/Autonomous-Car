@@ -13,9 +13,11 @@
 #define TEST_INTERVAL_DELAY 3000 // 3 Seconds
 
 Servo ESC;
+Servo Test;
 
 void setup() {
   ESC.attach(MOTOR_PIN, MIN_PULSE_W, MAX_PULSE_W);
+  Test.attach(A0);
 
   ESC.writeMicroseconds(NEUTRAL_SPEED);
   delay(STARTUP_DELAY);

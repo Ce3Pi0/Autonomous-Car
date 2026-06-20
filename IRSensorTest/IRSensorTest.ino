@@ -1,11 +1,8 @@
-#include <Pixy2.h>
 #include <Servo.h>
 #include <IrSensorArray.hpp>
 
-
 // Servo PIN
 #define SERVO_PIN A0
-#define MOTOR_PIN A4
 
 // IR Sensors
 #define IR_L_1 A5
